@@ -15,7 +15,7 @@ typedef struct {
 
 void enqueue(CircularQueue* q, PetrolPump item, int debug) {
     if (q->size == MAX) {
-        if (debug) printf("DEBUG: Queue is full.\n");
+        if (debug) printf("DEBUG: Queue is full. Cannot enqueue petrol = %d, distance = %d\n", item.petrol, item.distance);
         return;
     }
     if (q->front == -1) {
@@ -111,9 +111,9 @@ void findAllPossibleTours(PetrolPump pumps[], int n, int debug) {
 }
 
 int main() {
-    PetrolPump pumps[] = {{4, 6}, {6, 5}, {7, 3}, {4, 5}};
+    PetrolPump pumps[] = {{0, 0}, {0, 0}, {0, 0}};
     int n = sizeof(pumps) / sizeof(pumps[0]);
-    int debug = 1;  
+    int debug = 0;  
 
     int firstTour = findFirstTour(pumps, n, debug);
     if (firstTour != -1) {
